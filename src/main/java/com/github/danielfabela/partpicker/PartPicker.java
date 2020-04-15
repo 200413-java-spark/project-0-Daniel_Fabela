@@ -1,3 +1,4 @@
+package com.github.danielfabela.partpicker;
 import java.util.Scanner;
 class PartPicker{
     public static void main(String[] args){
@@ -10,9 +11,6 @@ class PartPicker{
         String HDD_Storage1 = "Seagate Barracuda 2TB 72000RPM";
         String Power1 = "Corsair CX 550W";
         String Case1 = "Fractal Design ATX";
-        String Coolers1 = "Corsair H100i RGB liquid";
-        String Keaboard_Mouse1 = "Redragon S101 Kb&M";
-        String Monitor1 = "Asus VG245H";
 
         // Temporary prices for the parts
         double CPU1_Price = 300.99;
@@ -23,9 +21,6 @@ class PartPicker{
         double HDD_Storage1_Price = 50.99;
         double Power1_Price = 90.99;
         double Case1_Price = 70.99;
-        double Coolers1_Price = 100.99;
-        double Keaboard_Mouse1_Price = 40.99;
-        double Monitor1_Price = 150.99;
         double total = 0.0;
 
         System.out.println("Welcome to Part Picker");
@@ -42,9 +37,6 @@ class PartPicker{
         System.out.println("6. HDD");
         System.out.println("7. Power Supply");
         System.out.println("8. Case");
-        System.out.println("9. Cooler");
-        System.out.println("10. Keyboard & Mouse");
-        System.out.println("11. Monitor");
 
         System.out.println("*************************************");
 
