@@ -91,9 +91,6 @@ class PartPicker{
             System.out.println("6. HDD");
             System.out.println("7. Power Supply");
             System.out.println("8. Case");
-            System.out.println("9. Cooler");
-            System.out.println("10. Keyboard & Mouse");
-            System.out.println("11. Monitor");
 
             System.out.println("*************************************");
             System.out.println("Input your choice. Only numbers from 0 to 11.");
