@@ -14,37 +14,37 @@ class PartPicker{
 
         // Variable to hold the user input
         int userInput = 0;
+        int userChoice = 0;
         // Variable to hold the subtotal of the build
         double subTotal = 0.0;
 
         // Call to display the main menu
         mainMenu.MainMenu();
         // Take the user input and store it in a variable
-        input.MenuInput();
         userInput = input.MenuInput();
         
         // Main loop to check the user input and display the corresponding menus
         while(userInput != 0){
-        if(userInput == 1){
-            component.CPU();
-            mainMenu.CPUMenu();
-            userInput = input.ComponentInput();
             if(userInput == 1){
-                subTotal = subTotal + component.CPU1_Price;
-                System.out.println("Subtotal Price = $" + subTotal);
-        }
-        else if(userInput == 2){
-            component.Motherboard();
-            mainMenu.motherboardMenu();
-            userInput = input.ComponentInput();
-            if(userInput == 1){
-                subTotal = subTotal + component.MotherBoard1_Price;
-                System.out.println("Total Price = $" + subTotal);
+                component.CPU();
+                mainMenu.CPUMenu();
+                userChoice = input.MenuInput();
+                if(userChoice == 1){
+                    subTotal = subTotal + component.CPU1_Price;
+                    System.out.println("Subtotal Price = $" + subTotal);
+                }
             }
+            else if(userInput == 2){
+                component.Motherboard();
+                mainMenu.motherboardMenu();
+                userChoice = input.MenuInput();
+                    if(userChoice == 1){
+                    subTotal = subTotal + component.MotherBoard1_Price;
+                    System.out.println("Total Price = $" + subTotal);
+                    }
+            }   
+            mainMenu.MainMenu();
+            userInput = input.MenuInput();
         }
-            
-        mainMenu.MainMenu();
-        userInput = input.MenuInput();
-        }
-    }            
-}
+    }
+}            

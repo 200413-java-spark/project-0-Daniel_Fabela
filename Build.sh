@@ -1,2 +1,2 @@
 # javac PartPicker.java
-mvn compile
+mvn clean compile

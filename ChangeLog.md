@@ -7,7 +7,10 @@
 
 ### Modified
 - ChangeLog.md file
-- PartPicker.java file by adding all the corresponding packages 
+- PartPicker.java file by adding all the corresponding packages
+- Corrected output problems and fixed main class issues
+- Remodeled all files
+- pom.xml file to include the mnv exec command in properties 
 
 ## Version 0.0.2
 ### Added

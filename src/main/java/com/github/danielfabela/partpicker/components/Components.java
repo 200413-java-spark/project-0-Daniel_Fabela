@@ -31,7 +31,4 @@ public class Components {
     public void Motherboard(){
         System.out.println("CPU Model 1: " + this.MotherBoard1 + " Price: $" + this.MotherBoard1_Price);
     }
-
-
-
 }

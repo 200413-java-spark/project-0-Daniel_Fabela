@@ -1,12 +1,6 @@
 package com.github.danielfabela.partpicker.menus;
-import com.github.danielfabela.partpicker.io.IO;
 
 public class Menu{
-    // Instantiate a new io object
-    IO scanner = new IO();
-    // declare an int variable to store the input chosen by the user
-    int input = 0;
-
     // Default constructor
     public Menu(){}
 
@@ -26,6 +20,7 @@ public class Menu{
         System.out.println("7. Power Supply");
         System.out.println("8. Case");
         System.out.println("*************************************");
+        System.out.println("Input your choice. Only numbers from 0 to 11.");
     }
 
     public void CPUMenu(){
@@ -34,7 +29,7 @@ public class Menu{
             System.out.println("1. Model 1");
             System.out.println("2. Model 2");
             System.out.println("*************************************");
-            input = scanner.ComponentInput();
+            System.out.println("Input your choice. Only numbers from 0 to 2.");
     }
 
     public void motherboardMenu(){
@@ -43,6 +38,6 @@ public class Menu{
             System.out.println("1. Model 1");
             System.out.println("2. Model 2");
             System.out.println("*************************************");
-            input = scanner.ComponentInput();
+            System.out.println("Input your choice. Only numbers from 0 to 2.");
     }
 }
