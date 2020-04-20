@@ -1,5 +1,14 @@
 # ChangeLog
 
+## Version 0.1.0
+### Added
+- IO,java, Components.java, and Menu.java packages
+- OOP
+
+### Modified
+- ChangeLog.md file
+- PartPicker.java file by adding all the corresponding packages 
+
 ## Version 0.0.2
 ### Added
 - Mavenization of the entire project
