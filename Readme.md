@@ -10,12 +10,8 @@ each organized in its own category:
 - GPU
 - RAM
 - SSD Storage
-- HDD Storage
 - Power
 - Case
-- Coolers
-- Keaboard & Mouse
-- Monitor
 
 Each part will have its specific details and price, and at the end of the program the user will
 be able to see the subtotal, tax, and total amount for the PC build.

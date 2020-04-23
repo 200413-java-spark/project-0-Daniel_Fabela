@@ -16,11 +16,10 @@ public class Menu{
         System.out.println("3. GPU");
         System.out.println("4. RAM");
         System.out.println("5. SSD");
-        System.out.println("6. HDD");
-        System.out.println("7. Power Supply");
-        System.out.println("8. Case");
+        System.out.println("6. Power Supply");
+        System.out.println("7. Case");
         System.out.println("*************************************");
-        System.out.println("Input your choice. Only numbers from 0 to 11.");
+        System.out.println("Input your choice. Only numbers from 0 to 7.");
     }
 
     public void CPUMenu(){

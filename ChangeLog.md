@@ -1,4 +1,12 @@
 # ChangeLog
+## Version 1.0.0
+### Added
+- File Reader method in the Components.java file
+- Interface to read the file (Dao.java)
+- Test csv file
+
+### Modified
+- Components.java, IO.java, Menu.java, ChangeLog.md, Readme.md and PartPicker.java
 
 ## Version 0.1.0
 ### Added
