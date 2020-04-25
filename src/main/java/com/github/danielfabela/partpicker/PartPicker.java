@@ -6,21 +6,23 @@ import com.github.danielfabela.partpicker.io.IO;
 
 class PartPicker{
     public static void main(String[] args){
+        Menu menu = new Menu();
+        IO inputparser = new IO();
+        int userInput = 0;
 
-        // Instantiate the objects
-        Components component = new Components();
-        Menu mainMenu = new Menu();
-        IO input = new IO();
-        int userinput = 0;
+        menu.MainMenu();
+        userInput = inputparser.MenuInput();
+        while(userInput != 0){
+            if(userInput == 1){
+                List<String> inventory = inputparser.File_Read();
+                for(String parts: inventory){
+                System.out.println(parts);
+                }
 
-        /*List<String> specs = input.readAll();
-        for(String part: specs){
-            System.out.println(part);
-        }*/
-        // Call to display the main menu
-        mainMenu.MainMenu();
-        // Take the user input and store it in a variable
-        userinput = input.MenuInput();
-        component.Userchoices(userinput);
+            }
+
+            menu.MainMenu();
+            userInput = inputparser.MenuInput();
+        }
     }
 }            

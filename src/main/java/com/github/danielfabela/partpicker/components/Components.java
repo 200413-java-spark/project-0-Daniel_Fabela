@@ -1,47 +1,34 @@
 package com.github.danielfabela.partpicker.components;
-import com.github.danielfabela.partpicker.io.*;
-import com.github.danielfabela.partpicker.menus.*;
+import com.github.danielfabela.partpicker.io.IO;
+import com.github.danielfabela.partpicker.menus.Menu;
 import java.util.List;
+import java.io.File;
 
-public class Components {
-    protected int userInput = 0;
-    protected double subTotal = 0.0;
-    protected double taxes = 0.0;
-    protected double totalPrice = 0.0;
-    
-    public Components(){}
+public abstract class Components {
+    protected String id;
+    protected String Model;
+    protected String Price;
+    protected double subtotal;
+    protected double taxes;
+    protected double total;
 
-    // Instantiate the objects
-    Menu mainMenu = new Menu();
-    IO input = new IO();
-
-    // Main loop to check the user input and display the corresponding menus
-    public void Userchoices( int userInput){
-        List<String> specs = input.readAll();
-        while(userInput != 0){
-            if(userInput == 1){
-                for(String part: specs){
-                System.out.println(part);
-                }
-                mainMenu.CPUMenu();
-                userInput = input.MenuInput();
-                if(userInput == 1){
-                    subTotal = subTotal + 85;
-                    System.out.println("Subtotal Price = $" + subTotal);
-                }
-            }
-            /*else if(userInput == 2){
-                component.Motherboard();
-                mainMenu.motherboardMenu();
-                userChoice = input.MenuInput();
-                    if(userChoice == 1){
-                    subTotal = subTotal + component.MotherBoard1_Price;
-                    System.out.println("Total Price = $" + subTotal);
-                    }
-            }*/   
-            mainMenu.MainMenu();
-            userInput = input.MenuInput();
-        }
+    public Components(String id, String Model, String Price){
+        this.id = id;
+        this.Model = Model;
+        this.Price = Price;
     }
+
+    public Components(String id, String Model, String Price, double subtotal, double taxes, double total){
+        this.id = id;
+        this.Model = Model;
+        this.Price = Price;
+        this.subtotal = subtotal;
+        this.taxes = taxes;
+        this.total = total;
+    }
+
+    //public Components getComponents(String id, String Model, double Price){
+        
+   // }
     
 }

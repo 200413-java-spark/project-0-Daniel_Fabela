@@ -2,57 +2,52 @@ package com.github.danielfabela.partpicker.io;
 
 import java.util.Scanner;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IO implements Dao<String>{
-    static final File Cpu = new File("Processors.csv");
-    static final File Motherboard = new File("Motherboards.csv");
-    static final File Gpu = new File("GPU.csv");
-    BufferedReader br = null;
+import com.github.danielfabela.partpicker.components.Components;
 
-    private List<String> File_Read(){
-        List<String> parts = new ArrayList<String>();
-        try {
-            br = new BufferedReader(new FileReader(Cpu));
+public class IO{
+    static final File input = new File("PartsInventory.csv");
+
+    public IO(){}
+
+    public List<String> File_Read(){
+        List<String> parts = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(input))){
             String line = br.readLine();
             while (line!= null) {
-                // use comma as separator
-                String[] Parts = line.split(",");
-                parts.add(line);
+                // use comma as separator to separate the strings
+                String[] partDetails = line.split(",");
+                String id = partDetails[0];
+                String Model = partDetails[1];
+                String Price = partDetails[2];
+                // add each string into the array list
+                parts.add(id);
+                parts.add(Model);
+                parts.add(Price);
+                // keep reading the next line until the end of file
                 line = br.readLine();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("input file not found");
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        } 
         return parts;
     }
+    // Method to write the array list
+    public void writeAll(List<String> parts){
 
+    }
+    // method to take input from the user
     public int MenuInput(){
         Scanner kb = new Scanner(System.in);
         int input = kb.nextInt();
         return input;
-    }
-
-    @Override
-    public List<String> readAll(){
-        return File_Read();
-    }
+    } 
 }
