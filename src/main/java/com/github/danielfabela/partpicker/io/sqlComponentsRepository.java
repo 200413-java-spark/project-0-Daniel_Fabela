@@ -29,8 +29,8 @@ public class sqlComponentsRepository implements Dao<Components> {
 				statement.setString(1, PCparts.getPart());
 				statement.setString(2, PCparts.getModel());
                 statement.setString(3, PCparts.getPrice());
-                statement.setDouble(3, PCparts.getTaxes());
-                statement.setDouble(3, PCparts.getTotal());
+                statement.setDouble(4, PCparts.getTaxes());
+                statement.setDouble(5, PCparts.getTotal());
 				statement.addBatch();
 			}
 			statement.executeBatch();

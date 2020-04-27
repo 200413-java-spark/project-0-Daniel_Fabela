@@ -6,7 +6,8 @@ public abstract class Components implements TaxComputation {
     protected String Model;
     protected String sPrice;
     protected double dPrice;
-    protected double taxes = 0.0625;
+    protected double tax_rate = 0.0625;
+    protected double taxes;
     protected double total;
 
     public Components(String Part, String Model, String sPrice){

@@ -7,7 +7,7 @@ public class Moth extends Components{
 
     @Override
     public double TotalPrice(){
-        this.taxes = this.dPrice * this.taxes;
+        this.taxes = this.dPrice * this.tax_rate;
         this.total = this.dPrice + this.taxes;
 
         return this.total;
