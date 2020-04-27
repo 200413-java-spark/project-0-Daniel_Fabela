@@ -13,7 +13,7 @@ import com.github.danielfabela.partpicker.io.sqlDataSource;
 class PartPicker{
     public static void main(String[] args){
         Menu menu = new Menu();
-        Dao<Components> inputparser = new IO();
+        
         IO inputtaker = new IO();
         int userInput = 0;
 
@@ -22,11 +22,22 @@ class PartPicker{
         while(userInput != 0){
             if(userInput == 1){
                 menu.ComponentsMenu();
+                Dao<Components> inputparser = new IO();
                 List<Components> inventory = inputparser.File_Read();
                 for(Components parts: inventory){
-                System.out.println(parts);
+                    parts.TotalPrice();
                 }
 
+                //Insert components with totals into the database
+                sqlDataSource dataSource = sqlDataSource.getInstance();
+                Dao<Components> partsRepository = new sqlComponentsRepository(dataSource);
+                partsRepository.writeAll(inventory);
+
+                //Read all the components from the database
+                inventory = partsRepository.File_Read();
+                for(Components parts: inventory){
+                    System.out.println(parts);
+                }
             }
 
             menu.MainMenu();

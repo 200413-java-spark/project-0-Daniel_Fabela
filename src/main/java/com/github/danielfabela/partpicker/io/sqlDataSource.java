@@ -10,9 +10,9 @@ public class sqlDataSource {
     private String password;
 
     private sqlDataSource() {
-        url = System.getProperty("database.url", "jdbc:postgresql://localhost:5432/opsdb");
-        user = System.getProperty("database.username", "opsdb");
-        password = System.getProperty("database.password", "opsdb");
+        url = System.getProperty("database.url", "jdbc:postgresql://localhost:5432/pclist");
+        user = System.getProperty("database.username", "pclist");
+        password = System.getProperty("database.password", "pclist");
     }
 
     public static sqlDataSource getInstance() {
