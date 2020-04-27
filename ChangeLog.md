@@ -1,5 +1,31 @@
 # ChangeLog
 
+## Version 1.0.1
+### Added
+- ComponentsFactory.java, Cpu.java, Gpu.java, Moth.java, Ssd.java, TaxComputation.java, Dao interface for the IO.java
+- Sql repositories and data source to persits the data to the database
+- Dockerfile
+- Schema file
+- JUnit test path for sql and for components
+- sqlComponentsRepositoryTest.java and ComponentsTest.java
+
+### Modified
+- Overhaul for the whole application
+- ChangeLog.md
+- Menu.java
+- main java file
+- IO.java to implement an interface
+- Components.java to implement a factory
+
+## Version 1.0.0
+### Added
+- File Reader method in the Components.java file
+- Interface to read the file (Dao.java)
+- Test csv file
+
+### Modified
+- Components.java, IO.java, Menu.java, ChangeLog.md, Readme.md and PartPicker.java
+
 ## Version 0.1.0
 ### Added
 - IO,java, Components.java, and Menu.java packages

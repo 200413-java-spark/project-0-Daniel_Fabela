@@ -1,50 +1,47 @@
 package com.github.danielfabela.partpicker;
+import java.util.List;
+import java.io.File;
 
 import com.github.danielfabela.partpicker.components.Components;
+import com.github.danielfabela.partpicker.components.ComponentsFactory;
 import com.github.danielfabela.partpicker.menus.Menu;
 import com.github.danielfabela.partpicker.io.IO;
+import com.github.danielfabela.partpicker.io.Dao;
+import com.github.danielfabela.partpicker.io.sqlComponentsRepository;
+import com.github.danielfabela.partpicker.io.sqlDataSource;
 
 class PartPicker{
     public static void main(String[] args){
-
-        // Instantiate the objects
-        Components component = new Components();
-        Menu mainMenu = new Menu();
-        IO input = new IO();
-
-        // Variable to hold the user input
-        int userInput = 0;
-        int userChoice = 0;
-        // Variable to hold the subtotal of the build
-        double subTotal = 0.0;
-
-        // Call to display the main menu
-        mainMenu.MainMenu();
-        // Take the user input and store it in a variable
-        userInput = input.MenuInput();
+        Menu menu = new Menu();
         
-        // Main loop to check the user input and display the corresponding menus
+        IO inputtaker = new IO();
+        int userInput = 0;
+
+        menu.MainMenu();
+        userInput = inputtaker.MenuInput();
         while(userInput != 0){
             if(userInput == 1){
-                component.CPU();
-                mainMenu.CPUMenu();
-                userChoice = input.MenuInput();
-                if(userChoice == 1){
-                    subTotal = subTotal + component.CPU1_Price;
-                    System.out.println("Subtotal Price = $" + subTotal);
+                menu.ComponentsMenu();
+                Dao<Components> inputparser = new IO();
+                List<Components> inventory = inputparser.File_Read();
+                for(Components parts: inventory){
+                    parts.TotalPrice();
+                }
+
+                //Insert components with totals into the database
+                sqlDataSource dataSource = sqlDataSource.getInstance();
+                Dao<Components> partsRepository = new sqlComponentsRepository(dataSource);
+                partsRepository.writeAll(inventory);
+
+                //Read all the components from the database
+                inventory = partsRepository.File_Read();
+                for(Components parts: inventory){
+                    System.out.println(parts);
                 }
             }
-            else if(userInput == 2){
-                component.Motherboard();
-                mainMenu.motherboardMenu();
-                userChoice = input.MenuInput();
-                    if(userChoice == 1){
-                    subTotal = subTotal + component.MotherBoard1_Price;
-                    System.out.println("Total Price = $" + subTotal);
-                    }
-            }   
-            mainMenu.MainMenu();
-            userInput = input.MenuInput();
+
+            menu.MainMenu();
+            userInput = inputtaker.MenuInput();
         }
     }
 }            

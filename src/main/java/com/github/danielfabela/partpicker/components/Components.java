@@ -1,34 +1,85 @@
 package com.github.danielfabela.partpicker.components;
 
-public class Components {
-    // Temporary variables for the PC parts
-    protected String CPU1 = "Ryzen 7 2700X";
-    protected String MotherBoard1 = "MSI B450 TOMAHAWK MAX ATX";
-    // Temporary prices for the parts
-    public double CPU1_Price = 300.99;
-    public double MotherBoard1_Price = 115.99;
+public abstract class Components implements TaxComputation {
+    protected int id;
+    protected String Part;
+    protected String Model;
+    protected String sPrice;
+    protected double dPrice;
+    protected double taxes = 0.0625;
+    protected double total;
 
-    /*String GPU1 = "Geforce RTX 2060 Super";
-    String RAM1 = "Ripjaws V 16GB DDR4-3600";
-    String SSD_Storage1 = "Kingston A4000 240GB";
-    String HDD_Storage1 = "Seagate Barracuda 2TB 72000RPM";
-    String Power1 = "Corsair CX 550W";
-    String Case1 = "Fractal Design ATX";*/
+    public Components(String Part, String Model, String sPrice){
+        this.Part = Part;
+        this.Model = Model;
+        this.sPrice = sPrice;
+        parseToDouble();
+    }
 
-    /*double GPU1_Price = 399.99;
-    double RAM1_Price = 84.99;
-    double SSD_Storage1_Price = 30.99;
-    double HDD_Storage1_Price = 50.99;
-    double Power1_Price = 90.99;
-    double Case1_Price = 70.99;*/
+    public Components(int id, String Part, String Model, String sPrice, double taxes, double total){
+        this.id = id;
+        this.Part = Part;
+        this.Model = Model;
+        this.sPrice = sPrice;
+        this.taxes = taxes;
+        this.total = total;
+        parseToDouble();
+    }
+
+    public int getId() {
+		return id;
+    }
     
-    public Components(){}
+    public String getPart() {
+		return Part;
+	}
 
-    public void CPU(){
-        System.out.println("CPU Model 1: " + this.CPU1 + " Price: $" + this.CPU1_Price);
+	public String getModel() {
+		return Model;
+	}
+
+	public String getPrice() {
+		return sPrice;
+	}
+
+	public double getTaxes() {
+		return taxes;
+    }
+    
+    public double getTotal() {
+		return total;
+    }
+    
+    public void setTaxes(double taxes) {
+		this.taxes = taxes;
     }
 
-    public void Motherboard(){
-        System.out.println("CPU Model 1: " + this.MotherBoard1 + " Price: $" + this.MotherBoard1_Price);
+	public void setTotal(double total) {
+		this.total = total;
     }
+    
+    public void parseToDouble(){
+        try{
+            this.dPrice = new Double(sPrice);
+        } catch(NumberFormatException e){
+            System.err.println("Failure to parse string: " + this.sPrice);
+        }
+    }
+
+	@Override
+	public String toString() {
+		StringBuilder out = new StringBuilder();
+		out.append(this.id);
+    out.append(",");
+    out.append(this.Part);
+    out.append(",");
+		out.append(this.Model);
+		out.append(",");
+		out.append(this.sPrice);
+		out.append(",");
+    out.append(this.taxes);
+    out.append(",");
+		out.append(this.total);
+		return out.toString();
+	}
 }
