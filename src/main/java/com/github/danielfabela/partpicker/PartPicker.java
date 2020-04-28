@@ -1,10 +1,12 @@
 package com.github.danielfabela.partpicker;
+
 import java.util.List;
-import java.io.File;
+//import java.io.File;
 
 import com.github.danielfabela.partpicker.components.Components;
-import com.github.danielfabela.partpicker.components.ComponentsFactory;
+//import com.github.danielfabela.partpicker.components.ComponentsFactory;
 import com.github.danielfabela.partpicker.menus.Menu;
+import com.github.danielfabela.partpicker.server.HttpServer;
 import com.github.danielfabela.partpicker.io.IO;
 import com.github.danielfabela.partpicker.io.Dao;
 import com.github.danielfabela.partpicker.io.sqlComponentsRepository;
@@ -38,6 +40,9 @@ class PartPicker{
                 for(Components parts: inventory){
                     System.out.println(parts);
                 }
+            } else if (userInput == 2){
+                HttpServer server = new HttpServer();
+                server.listen();
             }
 
             menu.MainMenu();
