@@ -25,6 +25,11 @@ public class Menu{
            
     }
 
+    public void FileMenu(){
+        System.out.println("*************************************************************");
+        System.out.println("Input the name of the File you want to calculate total prices");
+    }
+
     public void ChooseMenu(){
         System.out.println("*************************************************************");
         System.out.println("Input the Id's of the products you want to purchase");

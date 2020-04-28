@@ -13,9 +13,14 @@ import com.github.danielfabela.partpicker.components.Components;
 import com.github.danielfabela.partpicker.components.ComponentsFactory;
 
 public class IO implements Dao<Components>{
-    static final File input = new File("PartsInventory.csv");
-
+    //static final File input = new File("PartsInventory.csv");
+    private File input;
+    // Default constructor
     public IO(){}
+    // Constructor to take a file
+    public IO(File input){
+        this.input = input;
+    }
 
     @Override
     public List<Components> File_Read(){
@@ -35,7 +40,7 @@ public class IO implements Dao<Components>{
                 line = br.readLine();
             }
         } catch (FileNotFoundException e) {
-            System.err.println("input file not found");
+            System.err.println("Input File not Found");
         } catch (IOException e) {
             e.printStackTrace();
         } 
@@ -46,10 +51,17 @@ public class IO implements Dao<Components>{
     // Method to write the array list
     public void writeAll(List<Components> parts){
     }
+
     // method to take input from the user
     public int MenuInput(){
         Scanner kb = new Scanner(System.in);
         int input = kb.nextInt();
         return input;
-    } 
+    }
+    
+    public String fileInput(){
+        Scanner kb = new Scanner(System.in);
+        String input = kb.nextLine();
+        return input;
+    }
 }

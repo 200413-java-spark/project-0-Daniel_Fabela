@@ -2,14 +2,19 @@ package com.github.danielfabela.partpicker.components;
 
 public abstract class Components implements TaxComputation {
     protected int id;
+    // Variables to store the data from file
     protected String Part;
     protected String Model;
     protected String sPrice;
+    // Variable to store the sPrice converted to double
     protected double dPrice;
+    // Current tax rate variable
     protected double tax_rate = 0.0625;
+    // Variables to hold the calculated taxes and the totals
     protected double taxes;
     protected double total;
 
+    // Deafault constructor 
     public Components(String Part, String Model, String sPrice){
         this.Part = Part;
         this.Model = Model;
@@ -17,6 +22,7 @@ public abstract class Components implements TaxComputation {
         parseToDouble();
     }
 
+    // Constructor to hold all the file data and the calculated data
     public Components(int id, String Part, String Model, String sPrice, double taxes, double total){
         this.id = id;
         this.Part = Part;
@@ -27,6 +33,7 @@ public abstract class Components implements TaxComputation {
         parseToDouble();
     }
 
+    // Getters and setters
     public int getId() {
 		return id;
     }
@@ -55,10 +62,11 @@ public abstract class Components implements TaxComputation {
 		this.taxes = taxes;
     }
 
-	public void setTotal(double total) {
+	  public void setTotal(double total) {
 		this.total = total;
     }
     
+    // Method to parse the sPrice string and convert it to double
     public void parseToDouble(){
         try{
             this.dPrice = new Double(sPrice);

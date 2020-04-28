@@ -12,7 +12,7 @@ public class ComponentsFactory {
 		}
 		return instance;
 	}
-
+	// Method to perform the tax calculations
 	public Components getComponents(String Part, String Model, String sPrice) {
 		switch (Part) {
 			case "cpu":
