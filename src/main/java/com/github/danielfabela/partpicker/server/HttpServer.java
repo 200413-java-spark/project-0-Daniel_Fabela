@@ -32,7 +32,7 @@ public class HttpServer {
 
                 // Write the response
                 StringBuffer response = new StringBuffer();
-                String message = "Hello World";
+                String message = "<h1>Total Price for your Parts is: $919.22</h1>";
                 response.append("HTTP/1.1 200 Success\r\n"
                         + "Content-Type: text/html\r\n"
                         + "Content-Length: ");

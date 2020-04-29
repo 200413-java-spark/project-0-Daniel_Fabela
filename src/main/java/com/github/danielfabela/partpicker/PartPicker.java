@@ -2,7 +2,6 @@ package com.github.danielfabela.partpicker;
 
 import java.io.File;
 import java.util.List;
-//import java.io.File;
 
 import com.github.danielfabela.partpicker.components.Components;
 //import com.github.danielfabela.partpicker.components.ComponentsFactory;
@@ -36,6 +35,8 @@ class PartPicker{
                 fileinput = inputtaker.fileInput();
                 // Create a new file with name inputted name
                 File input = new File(fileinput);
+                // Display the list and the column names
+                menu.ListMenu();
                 // Parse the input file and read the file
                 Dao<Components> inputparser = new IO(input);
                 List<Components> inventory = inputparser.File_Read();
@@ -56,7 +57,9 @@ class PartPicker{
                 }  
             }
             else if (userInput == 3){
-                // Connect to an http server
+                // Connect to a http server
+                System.out.println("Conected to the Server");
+                System.out.println("In Browser type: http://localhost:8080");
                 HttpServer server = new HttpServer();
                 server.listen();
             }

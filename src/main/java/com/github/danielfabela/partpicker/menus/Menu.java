@@ -11,9 +11,9 @@ public class Menu{
         System.out.println("*************************************************************");
         System.out.println("Main Menu");
         System.out.println("0. Quit");
-        System.out.println("1. See Listed Components");
-        System.out.println("2. Calculate Total Price of Each Part");
-        System.out.println("3. Display Total Price for PC");
+        System.out.println("1. See your Listed Components from a File");
+        System.out.println("2. Calculate Total Price of Each Part and Display it");
+        System.out.println("3. Display Total Price for your parts in Browser");
         System.out.println("*************************************************************");
         System.out.println("Input your choice. Only numbers from 0 to 3.");
     }
@@ -30,8 +30,11 @@ public class Menu{
         System.out.println("Input the name of the File you want to calculate total prices");
     }
 
-    public void ChooseMenu(){
+    public void ListMenu(){
         System.out.println("*************************************************************");
-        System.out.println("Input the Id's of the products you want to purchase");
+        System.out.println("List of all components with total prices");
+        System.out.println();
+        System.out.println("Part    |    Model    |    Price    |    Taxes    |    Total");
+        System.out.println();
     }
 }

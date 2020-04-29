@@ -56,12 +56,15 @@ public class IO implements Dao<Components>{
     public int MenuInput(){
         Scanner kb = new Scanner(System.in);
         int input = kb.nextInt();
+        //kb.close();
         return input;
+        
     }
     
     public String fileInput(){
         Scanner kb = new Scanner(System.in);
         String input = kb.nextLine();
+        //kb.close();
         return input;
     }
 }

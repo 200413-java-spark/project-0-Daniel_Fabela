@@ -75,7 +75,7 @@ public abstract class Components implements TaxComputation {
         }
     }
 
-	@Override
+	/*@Override
 	public String toString() {
 		StringBuilder out = new StringBuilder();
 		out.append(this.id);
@@ -90,5 +90,23 @@ public abstract class Components implements TaxComputation {
     out.append(",");
 		out.append(this.total);
 		return out.toString();
-	}
+  }*/
+  
+  @Override
+	public String toString() {
+		StringBuilder out = new StringBuilder();
+		//out.append(this.id);
+    //out.append(",");
+    out.append(this.Part);
+    out.append("  |  ");
+		out.append(this.Model);
+		out.append("  |  $");
+		out.append(this.sPrice);
+		out.append("  |  $");
+    out.append(this.taxes);
+    out.append("  |  $");
+		out.append(this.total);
+		return out.toString();
+  }
+
 }

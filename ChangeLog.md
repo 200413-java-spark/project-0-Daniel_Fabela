@@ -1,5 +1,18 @@
 # ChangeLog
 
+## Version 1.1.1
+### Added
+- HttpServer.java and its addition to display
+  the total price for the user's parts(not fully implemented though), ComponentsTest.java
+
+### Modified
+- Main java file to display the correct menus and access and retrieve data from the database
+- IO.java implements another method to receive a string input
+- Components.java returns a new toString() method
+- Menu.java contains a new menu and formatted the rest
+- Renamed the csv file
+- Modified Readme and Changelog.md
+
 ## Version 1.0.1
 ### Added
 - ComponentsFactory.java, Cpu.java, Gpu.java, Moth.java, Ssd.java, TaxComputation.java, Dao interface for the IO.java
